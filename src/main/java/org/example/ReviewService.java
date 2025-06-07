@@ -13,11 +13,15 @@ public class ReviewService {
     }
 
 
-    public List<Review> returnData(){
-        List<Review> returnList = Db.getReviewList().stream()
-                .sorted(Comparator.comparing(Review::getLocalDate))
-                .collect(Collectors.toList());
-        return returnList;
+    public static List<String> returnData(){
+        return Db.getReviewList().stream()
+                .sorted(Comparator.comparing(Review::getLocalDate).reversed())
+                .map(review -> String.format("Автор: %s | Дата: %s | Отзыв: %s",
+                        review.getName(),
+                        review.getLocalDate(),
+                        review.getText()))
+                .collect(Collectors.toList()).reversed();
+
     }
 
 }

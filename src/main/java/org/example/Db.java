@@ -7,6 +7,7 @@ public class Db {
     private static final List<Review> reviewList = new ArrayList<>();
 
     public static List<Review> getReviewList() {
+
         return reviewList;
     }
 }
