@@ -1,13 +1,16 @@
 package org.example;
 
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Stream;
+
 
 public class Menu {
-//    Declaring Static Classes
+    //    Declaring Static Classes
     Scanner scanner = new Scanner(System.in);
     ReviewService reviewService = new ReviewService();
 
-//    Main menu loop
+    //    Main menu loop
     public void start() {
 
         while (true) {
@@ -31,9 +34,15 @@ public class Menu {
                     System.out.println("Review successfully added!");
                 }
                 case "2" -> {
+                    listAllReviews();
+                }
+
+
+
+
 //                    Сервис получить все - Ларик. Итеративно sout все отзывы из дб,
 //                    если отзывов нет - вывсети соответствующее сообщение
-                }
+
                 case "3" -> {
 //                    Сервис удаление - Олег. Надо попросить у юзера через scanner,
 //                    принять, проверить что отзыв с таким ID существует и если да,
@@ -54,4 +63,20 @@ public class Menu {
             }
         }
     }
+
+
+
+    public void listAllReviews() {
+        List<Review> reviewList =  Db.getReviewList();
+        if(reviewList.isEmpty() ){
+            System.err.println("There are no reviews available!");
+        } else {
+            for (Review review : reviewList ) {
+                System.out.println(review);
+            }
+        }
+
+
+    }
 }
+
