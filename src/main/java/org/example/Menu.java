@@ -1,9 +1,12 @@
 package org.example;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
+    //    Declaring Static Classes
     Scanner scanner = new Scanner(System.in);
+    ReviewService reviewService = new ReviewService();
 
     public void start() {
 
@@ -36,7 +39,10 @@ public class Menu {
 //                    получить и вывести все, если не вывести соответствующее уведомление
                 }
                 case "5" -> {
-
+                    List<Review> reviewList = reviewService.returnData();
+                    for (Review review : reviewList){
+                        System.out.println(review.toString());
+                    }
                 }
                 default -> {
                     return;
