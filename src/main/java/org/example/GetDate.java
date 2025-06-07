@@ -1,7 +1,5 @@
 package org.example;
 
-import sun.util.resources.LocaleData;
-
 import java.time.LocalDate;
 
 public class GetDate {
