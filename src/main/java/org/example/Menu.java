@@ -65,8 +65,7 @@ public class Menu {
     }
 
 
-
-     private void listAllReviews() {
+    private void listAllReviews() {
         List<Review> reviewList =  Db.getReviewList();
         if(reviewList.isEmpty() ){
             System.err.println("There are no reviews available!");
