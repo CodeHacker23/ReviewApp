@@ -34,19 +34,21 @@ public class Menu {
                     System.out.println("Review successfully added!");
                 }
                 case "2" -> {
+//                    Сервис получить все - Ларик. Итеративно sout все отзывы из дб,
+//                    если отзывов нет - вывсети соответствующее сообщение
                     listAllReviews();
                 }
 
-
-
-
-//                    Сервис получить все - Ларик. Итеративно sout все отзывы из дб,
-//                    если отзывов нет - вывсети соответствующее сообщение
 
                 case "3" -> {
 //                    Сервис удаление - Олег. Надо попросить у юзера через scanner,
 //                    принять, проверить что отзыв с таким ID существует и если да,
 //                    удалить, вывсети подтверждение
+
+                    System.out.println("Please enter the id of review to delete");
+                    Long reviewID = scanner.nextLong();
+                    scanner.nextLine();
+                    reviewService.deleteReviewById(reviewID);
 
                 }
                 case "4" -> {
@@ -56,7 +58,7 @@ public class Menu {
                 }
                 case "5" -> {
                     List<Review> reviewList = reviewService.returnData();
-                    for (Review review : reviewList){
+                    for (Review review : reviewList) {
                         System.out.println(review.toString());
                     }
                 }
@@ -68,13 +70,12 @@ public class Menu {
     }
 
 
-
-     private void listAllReviews() {
-        List<Review> reviewList =  Db.getReviewList();
-        if(reviewList.isEmpty() ){
+    private void listAllReviews() {
+        List<Review> reviewList = Db.getReviewList();
+        if (reviewList.isEmpty()) {
             System.err.println("There are no reviews available!");
         } else {
-            for (Review review : reviewList ) {
+            for (Review review : reviewList) {
                 System.out.println(review);
             }
         }
