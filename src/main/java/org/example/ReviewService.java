@@ -20,13 +20,4 @@ public class ReviewService {
         return returnList;
     }
 
-    public void deleteReviewById(Long id) {
-        boolean reviewRemoved = Db.getReviewList().removeIf(review -> review.getId().equals(id)); //compares review id with input, delete if true
-        if(reviewRemoved){
-            System.out.println("Review removed successfully");
-        }else {
-            System.err.println("Review with this id doesn't exist");
-        }
-    }
-
 }
