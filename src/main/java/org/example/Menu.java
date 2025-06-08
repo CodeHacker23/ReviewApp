@@ -48,7 +48,7 @@ public class Menu {
                     System.out.println("Please enter the id of review to delete");
                     Long reviewID = scanner.nextLong();
                     scanner.nextLine();
-                    //reviewService.deleteReviewById(reviewID);
+                    reviewService.deleteReviewById(reviewID);
 
                 }
                 case "4" -> {
