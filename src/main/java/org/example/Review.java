@@ -64,11 +64,11 @@ public class Review {
 
     @Override
     public String toString() {
-        return "org.example.Review" +
-                "id" + id +
-                "localDate" + localDate +
-                "text" + text + '\'' +
-                ", name'" + name + '\'' +
+        return "Review{" +
+                "id: " + id +
+                ", localDate: " + localDate +
+                ", text: " + text + '\'' +
+                ", name: " + name +
                 '}';
     }
 }
